@@ -1,0 +1,105 @@
+body{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+}
+
+body > div{
+	width: 878px;
+	margin: auto;
+    border-radius: 5px;
+}
+
+.header{
+	width: 878px;
+	height: 254px;
+	background-image: url("http://haleryd.se/onewebstatic/473827feaa-f%C3%B6rstasidan2.jpg");
+	background-repeat: none;
+}
+
+.title{
+    position: relative;
+    top: 31px;
+    text-align: right;
+    font-family: 'Palatino Linotype','Book Antiqua',Palatino,serif;
+    font-size: 48px;
+}
+
+.main{
+	margin-top: 20px;
+	padding: 20px 0;
+    background-image: -webkit-linear-gradient(top,rgba(228,228,228,0.76) 62%,rgba(104,104,104,0.76) 100%);
+    background-image: -ms-linear-gradient(top,rgba(228,228,228,0.76) 62%,rgba(104,104,104,0.76) 100%);
+    background-image: -o-linear-gradient(top,rgba(228,228,228,0.76) 62%,rgba(104,104,104,0.76) 100%);
+    background-image: linear-gradient(top,rgba(228,228,228,0.76) 62%,rgba(104,104,104,0.76) 100%);
+}
+
+    .main span{
+        height: 200px;
+    }
+
+    .nav{
+    	text-transform: uppercase;
+        width: 15%;
+        float: left;
+    }
+        
+        .nav .selected{
+            background-image: -webkit-linear-gradient(left,rgba(199,199,199,1) 0,rgba(109,108,104,1) 80%);
+            background-image: -ms-linear-gradient(left,rgba(199,199,199,1) 0,rgba(109,108,104,1) 80%);
+            background-image: -o-linear-gradient(left,rgba(199,199,199,1) 0,rgba(109,108,104,1) 80%);
+            background-image: linear-gradient(left,rgba(199,199,199,1) 0,rgba(109,108,104,1) 80%);
+            color: #fff!important;
+        }
+        
+        .nav a{
+            width: 100%;
+            display: inline-block;
+            padding: 8px 10px;
+            font-weight: bold;
+            text-decoration: none;
+            color: black!important;
+        }
+
+    .content{
+        width: 50%;
+        display: inline-block;
+        padding: 0px 20px;
+        margin-left: 20px;
+        border-left: 2px solid black;
+        border-right: 2px solid black;
+        text-align: justify;
+    }
+    
+    .news{
+        width: 25%;
+        float: right;
+        text-align: right;
+        margin-right: 10px;
+    }
+    
+        .news strong{
+            text-transform: uppercase;
+        }
+        
+        .news a{
+            display: inline-block;
+            text-decoration: none;
+            color: black!important;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .news a:hover{
+            color: #fff!important;
+        }
+        
+.footer{
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px 0;
+    color: #fff!important;
+    background-image: -webkit-linear-gradient(top,rgba(102,102,102,1) 0,rgba(0,0,0,1) 100%);
+    background-image: -ms-linear-gradient(top,rgba(102,102,102,1) 0,rgba(0,0,0,1) 100%);
+    background-image: -o-linear-gradient(top,rgba(102,102,102,1) 0,rgba(0,0,0,1) 100%);
+    background-image: linear-gradient(top,rgba(102,102,102,1) 0,rgba(0,0,0,1) 100%);
+}  
