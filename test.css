@@ -1,12 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 1px;
+}
+
 body{
     font-family: Arial,Helvetica,sans-serif;
-    font-size: 12px;
 }
 
 body > div{
 	width: 878px;
 	margin: auto;
     border-radius: 5px;
+    font-size: 12px;
+}
+       
+img{
+    border: 1px solid black;
+}
+        
+.list > * {
+    display: block;
+}
+
+table{
+    border-collapse: collapse;
+    font-size: 11px;
+    width: 100%;
+}
+
+th, td {
+    padding-right: 10rem;
+    padding-top: 5rem;
+    white-space: nowrap;
+}
+
+th{
+    padding-top: 15rem;
+}
+
+.displayAsTable{
+    display: table;
+}
+
+.displayAsTable > * {
+    display: table-cell;
+    vertical-align: top;
 }
 
 .header{
@@ -25,22 +66,24 @@ body > div{
 }
 
 .main{
-	margin-top: 20px;
-	padding: 20px 0;
+	margin-top: 20rem;
+	padding: 30rem 0;
+    display: table;
     background-image: -webkit-linear-gradient(top,rgba(228,228,228,0.76) 62%,rgba(104,104,104,0.76) 100%);
     background-image: -ms-linear-gradient(top,rgba(228,228,228,0.76) 62%,rgba(104,104,104,0.76) 100%);
     background-image: -o-linear-gradient(top,rgba(228,228,228,0.76) 62%,rgba(104,104,104,0.76) 100%);
     background-image: linear-gradient(top,rgba(228,228,228,0.76) 62%,rgba(104,104,104,0.76) 100%);
 }
 
-    .main span{
-        height: 200px;
+    .main > span{
+        height: 100%;
+        display: table-cell;
+        vertical-align: top;
     }
 
     .nav{
     	text-transform: uppercase;
-        width: 15%;
-        float: left;
+        width: 125px;
     }
         
         .nav .selected{
@@ -54,27 +97,44 @@ body > div{
         .nav a{
             width: 100%;
             display: inline-block;
-            padding: 8px 10px;
+            padding: 8rem 10rem;
             font-weight: bold;
             text-decoration: none;
             color: black!important;
         }
 
     .content{
-        width: 50%;
         display: inline-block;
-        padding: 0px 20px;
-        margin-left: 20px;
+        padding: 0rem 20rem;
         border-left: 2px solid black;
         border-right: 2px solid black;
         text-align: justify;
     }
+        .horses{
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .horse {
+            width: 30%;
+        }
+        
+        .horse a {
+            margin-bottom: 8rem;
+        }
+        
+        .kontakt > div{
+            margin-bottom: 10rem;
+        }
+        
+        .kontakt img{
+            margin-right: 20rem;
+        }
     
     .news{
-        width: 25%;
-        float: right;
+        width: 190px;
         text-align: right;
-        margin-right: 10px;
+        padding-right: 10rem;
     }
     
         .news strong{
@@ -82,11 +142,11 @@ body > div{
         }
         
         .news a{
-            display: inline-block;
+            display: block;
             text-decoration: none;
             color: black!important;
             font-style: italic;
-            margin-top: 10px;
+            padding: 5rem 0;
         }
         
         .news a:hover{
@@ -94,9 +154,9 @@ body > div{
         }
         
 .footer{
-    margin-top: 20px;
+    margin-top: 20rem;
     text-align: center;
-    padding: 20px 0;
+    padding: 20rem 0;
     color: #fff!important;
     background-image: -webkit-linear-gradient(top,rgba(102,102,102,1) 0,rgba(0,0,0,1) 100%);
     background-image: -ms-linear-gradient(top,rgba(102,102,102,1) 0,rgba(0,0,0,1) 100%);

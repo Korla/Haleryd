@@ -15,37 +15,491 @@
 		<div class="header">
 			<div class="title">Stuteri Håleryd</div>
 		</div>
-		
 		<div class="main">
 			<span class="nav">
-		        <span><a href="#" class="selected">Hem</a></span>
-		        <span><a href="#">Avelshingstar</a></span>
-		        <span><a href="#">Avelsston</a></span>
-		        <span><a href="#">Unghästar</a></span>
-		        <span><a href="#">Inackordering</a></span>
-		        <span><a href="#">Kontakt</a></span>
-		        <span><a href="#">English</a></span>
+				<!-- ko foreach: navElements -->
+				<a data-bind="
+					text: $data, 
+					attr: {'href':'#' + $data},
+					css: { selected: $data === selectedNav() },
+					click: setCurrentPath
+				"></a>
+				<!-- /ko -->
 			</span>
 			<span class="content">
-				<p>Stuteri Håleryd grundades 1960 av Hans Hugoson. Allt sedan starten har det varit ett av Sveriges främsta stuterier, med segrar i alla de klassiska loppen.</p>
-				<p>Stuteri Håleryds vision bygger på att avla, föda upp, tävla och sälja förstklassiga travhästar, både nationellt och internationellt. Träning och tävlan sker i samarbete med förstklassiga travtränare och kuskar.</p>
-				<p>Stuteri Håleryd är ett EU-godkänt stuteri med EU-godkänd seminstation.</p>
-				<p>På gården bedrivs även skogsbruk, jordbruk samt köttdjursuppfödning. I enlighet med Håleryds miljötänkande producerar vi vårt eget ensilage och all åkermark gödslas med naturgödsel från den egna produktionen.</p>
-				<p>Idag ägs och drivs Stuteri Håleryd av familjen Mats Hugoson.</p>
+				<div data-bind="if: currentPath() === 'Hem'">
+					<p>Stuteri Håleryd grundades 1960 av Hans Hugoson. Allt sedan starten har det varit ett av Sveriges främsta stuterier, med segrar i alla de klassiska loppen.</p>
+					<p>Stuteri Håleryds vision bygger på att avla, föda upp, tävla och sälja förstklassiga travhästar, både nationellt och internationellt. Träning och tävlan sker i samarbete med förstklassiga travtränare och kuskar.</p>
+					<p>Stuteri Håleryd är ett EU-godkänt stuteri med EU-godkänd seminstation.</p>
+					<p>På gården bedrivs även skogsbruk, jordbruk samt köttdjursuppfödning. I enlighet med Håleryds miljötänkande producerar vi vårt eget ensilage och all åkermark gödslas med naturgödsel från den egna produktionen.</p>
+					<p>Idag ägs och drivs Stuteri Håleryd av familjen Mats Hugoson.</p>
+				</div>
+				
+				<div data-bind="if: currentPath() === 'Avelshingstar'">
+					<p>
+						<strong>Avelshingstar</strong>
+					</p>
+					<p>I vårt avelsstall har vi för närvarande två stora travare: Pato (Svenskt Travkriterium 2011) och Nu Pagadi (Solvalla Grand Prix 2009). För bokningar var vänlig kontakta oss via haleryd@haleryd.se, alternativt ring Mats på 070-32 50580.</p>
+					<p>Klicka på respektive häst för mer info.</p>
+					<div class="horses">
+						<span class="horse list">
+							<a href="#nuPagadi" data-bind="click: setCurrentPath" title="Nu Pagadi">
+								<img src="http://haleryd.se/onewebstatic/d74bea5801-nupagadihel2.png" title="Nu Pagadi" alt="Nu Pagadi">
+									
+								<strong>Nu pagadi</strong>
+							</a>
+							
+							<span>Född: 2005</span>
+							<span>Rekord: 1.10,4</span>
+							<span>Resultat: 40 starter: 20-3-4</span>
+							<span>Prissumma: 6.641.500 SEK</span>
+						</span>
+						<span class="horse list">
+							<a href="#Pato" data-bind="click: setCurrentPath" title="Nu Pagadi">
+								<img src="http://haleryd.se/onewebstatic/c9d9f72ac8-Pato1.jpg" title="Nu Pagadi" alt="Nu Pagadi">
+									
+								<strong>Pato</strong>
+							</a>
+						
+							<span>Född: 2008</span>
+							<span>Rekord: 1.12,8</span>
+							<span>Resultat: 23 starter: 10-1-1</span>
+							<span>Prissumma: 4.208.000 SEK</span>
+						</span>
+					</div>
+				</div>
+				<div class="horse-details" data-bind="if: currentPath() === 'nuPagadi'">
+					<p>
+						<strong>Nu Pagadi</strong>
+					</p>
+					<div>
+						<img src="http://haleryd.se/onewebstatic/ad40f45280-Nu-Pagadi1-300x168.jpg"/>
+						
+						<p style="float: right;" class="list">
+							<span>Tävlingsvideos:</span>
+							<a href="https://youtu.be/W7LwP6YQ91Y">Solvalla Grand Prix 2009</a>
+							<a href="https://youtu.be/vapN-yLcviA">Jubileumspokalen 2010</a>
+							<a href="https://youtu.be/WIYK06hqfuQ">Copenhagen Cup 2010</a>
+						</p>
+					</div>
+					<p class="list">
+						<span>Född: 2005</span>
+						<span>Far: Love You</span>
+						<span>Mor: Noblesse Oblige</span>
+						<span>Morfar: Armbro Kaiser</span>
+						<span>Manke: 162 cm</span>
+						<span>Rekord: 1.10,4</span>
+						<span>Resultat: 40 starter: 20-3-4</span>
+					</p>
+						
+					<p>Vinnare av 6.641.500SEK</p>
+					<p>
+						<i>Pris: 3.000SEK vid bokning + 24.000SEK vid levande föl (exkl. moms).</i>
+					</p>
+				</div>
+				<div data-bind="if: currentPath() === 'Pato'">
+					<p>
+						<strong>Pato</strong>
+					</p>
+					<p style="display: flex;">
+						<img src="http://haleryd.se/onewebstatic/6b935a9087-Pato1.jpg"/>
+					</p>
+					<p>Pato var obesegrad som 3-åring på sina fem starter. Han avslutade säsongen med en imponerande vinst i Svenskt Travkriterium. Året efter vann han Svenskt Travderby på 1.28,8a över 2640 meter. Som 4-åring debuterade Pato med att vinna på svenskt rekord över stayerdistans (1.14,5 volt över 3.200 meter). Hingsten har ett högt skattat avelsvärde på 79 poäng.</p>
+					<p class="list">
+						<span>Född: 2008</span>
+						<span>Far: Orlando Vici</span>
+						<span>Mor: She`s My Pie</span>
+						<span>Morfar: Alf Palema</span>
+						<span>Manke: 160 cm</span>
+						<span>Rekord: *1.14,5l, *1.12,8al</span>
+						<span>Resultat: 23 starter: 10-1-1</span>
+					</p>
+						
+					<p>Vinnare av 4.208.000SEK</p>
+					<p>
+						<i>Pris: 2.000SEK vid bokning + 12.000SEK vid levande föl (exkl. moms).</i>
+					</p>
+				</div>
+				<div data-bind="if: currentPath() === 'Avelsston'">
+					<p>
+						<strong>Avelsston</strong>
+					</p>
+					<p>Här hittar ni det senaste om våra avelsston.</p>
+					<table>
+						<tr>
+							<th>Avelssto</th>
+							<th>Far</th>
+							<th>Mor</th>
+							<th>Tid</th>
+							<th>Prissumma</th>
+							<th>Dräktig med</th>
+						</tr>
+						<!-- ko foreach: avelsston -->
+						<tr>
+							<td data-bind="text: namn"></td>
+							<td data-bind="text: mor"></td>
+							<td data-bind="text: far"></td>
+							<td data-bind="text: tid"></td>
+							<td data-bind="text: prissumma"></td>
+							<td data-bind="text: draktigMed"></td>
+						</tr>
+						<!-- /ko -->
+					</table>
+				</div>
+				<div data-bind="if: currentPath() === 'Unghästar'">
+					<p>
+						<strong>Unghästar och föl</strong>
+					</p>
+					<p>
+						Här hittar ni det senaste om våra unghästar och föl.
+						<img style="float: right;" src="http://haleryd.se/onewebstatic/dce13f4158-Rappeh%C3%A5leryd.png" alt="Rappe Håleryd, 1983"/>
+					</p>
+					
+					<table>
+						<tr>
+							<th colspan="4">Hästar födda 2014</th>
+						</tr>
+						<tr>
+							<td>Kodiak Håleryd (h)</td>
+							<td>Scarlet Knight</td>
+							<td colspan="2">Ramona Håleryd</td>
+						</tr>
+						<tr>
+							<td>Kobra Håleryd (h)</td>
+							<td>Nu Pagadi</td>
+							<td colspan="2">Cologne Håleryd</td>
+						</tr>
+						<tr>
+							<td>Kickan Håleryd (s)</td>
+							<td>Prodigious</td>
+							<td colspan="2">Laughing Louder</td>
+						</tr>
+						<tr>
+							<td>Klara Håleryd (s)</td>
+							<td>Quite Easy US</td>
+							<td colspan="2">Stella Håleryd</td>
+						</tr>
+						<tr>
+							<td>Kaiser Håleryd (h)</td>
+							<td>Raja Mirchi</td>
+							<td colspan="2">Looking Flashy</td>
+						</tr>
+						<tr>
+							<th colspan="4">Hästar födda 2013</th>
+						</tr>
+						<tr>
+							<td>Jenny Håleryd (s)</td>
+							<td>Raja Mirchi</td>
+							<td>Looking Flashy</td>
+							<td>sold</td>
+						</tr>
+						<tr>
+							<td>Jazza Håleryd (s)</td>
+							<td>Scarlet Knight</td>
+							<td>Velvet Ås</td>
+							<td>sold</td>
+						</tr>
+						<tr>
+							<td>Julia Håleryd (s)</td>
+							<td>Scarlet Knight</td>
+							<td>Stella Håleryd</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Java Håleryd (s)</td>
+							<td>Cantab Hall</td>
+							<td>Cologne Håleryd</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Jaguar Håleryd (h)</td>
+							<td>Maharajah</td>
+							<td>Ramona Håleryd</td>
+							<td>sold</td>
+						</tr>
+						<tr>
+							<td>Juni Håleryd (s)</td>
+							<td>Canteb Hall</td>
+							<td>Rebeckas Mystic</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Jack Håleryd (h)</td>
+							<td>Zola Boko</td>
+							<td>Oh Gigi</td>
+							<td>sold</td>
+						</tr>
+						<tr>
+							<th colspan="4">Hästar födda 2012</th>
+						</tr>
+						<tr>
+							<td>Flash Håleryd (h)</td>
+							<td>Conway Hall</td>
+							<td>Looking Flashy</td>
+							<td>sold</td>
+						</tr>
+						<tr>
+							<td>Ikon Håleryd (h)</td>
+							<td>Ready Cash</td>
+							<td>Velvet Ås</td>
+							<td>sold</td>
+						</tr>
+						<tr>
+							<td>Ila Håleryd (s)</td>
+							<td>Conway Hall</td>
+							<td>Stella Håleryd</td>
+							<td>sold</td>
+						</tr>
+						<tr>
+							<td>Ilona Håleryd (s)</td>
+							<td>Zola Boko</td>
+							<td>Cologne Håleryd</td>
+							<td>sold</td>
+						</tr>
+						<tr>
+							<td>Imira Håleryd (s)</td>
+							<td>Ready Cash</td>
+							<td>Falnos Bellona</td>
+							<td>sold</td>
+						</tr>
+						<tr>
+							<td>Isak Håleryd (h)</td>
+							<td>Cantab Hall</td>
+							<td>Laughing Louder</td>
+							<td>sold</td>
+						</tr>
+						<tr>
+							<td>Issi Håleryd (s)</td>
+							<td>Scarlet Knight</td>
+							<td>Oh Gigi</td>
+							<td>sold</td>
+						</tr>
+					</table>
+				</div>
+				<div data-bind="if: currentPath() === 'Inackordering'">
+					<p>
+						<strong>Inackordering</strong>
+					</p>
+					<p>Det finns goda möjligheter att inackordera sina hästar på Håleryd. Stuteriet har två gårdar med 4 stall, 70 boxar och över 120 ha betesmarker. Veterinär är tillgänglig alla dagar, avståndet till Helsingborgs Djursjukhus är 30 min.</p>
+					<div class="displayAsTable" style="margin-bottom: 20rem;">
+						<span style="padding-right: 10rem;">
+							<img style="display: block;" src="http://haleryd.se/onewebstatic/0173034000-villeh%C3%A5leryd.png" title="Ville Håleryd" alt="Ville Håleryd">
+							<i>Ville Håleryd, Jägersro, Rikstotofinal 1986.</i>
+						</span>
+						<span>På Stuteri Håleryd bedrivs även träning och tävling med travhästar. Förutom väldigt fina skogsslingor består träningsmöjligheterna av en rundbana, samt en rakbana som är preparerade året runt.</span>	
+					</div>
+					<p>
+						<strong>Priser</strong></br>
+						Inackorderingspris/dygn: Sto: 100kr. Sto med föl: 120kr. Fölbevakning: 2400kr.
+					</p>
+				</div>
+				<div class="kontakt" data-bind="if: currentPath() === 'Kontakt'">
+					<img style="float: right;" src="http://haleryd.se/onewebstatic/805c082bb4-Satellitbild%20h%C3%A5leryd.png" title="Stuteri Håleryd" alt="Stuteri Håleryd"/>
+					<p>
+						<strong>Kontakt</strong>
+					</p>
+ 
+ 					<div>
+						<div><strong>Post:</strong></div>
+						<div>Håleryd AB</div>
+						<div>Box 17</div>
+						<div>286 21 Örkelljunga</div>
+					</div>
+					<div>
+						<div><strong>Telefon:</strong></div>
+						<div>Stuteri: 0435-508 33</div>
+						<div>Stuteri, fax: 0435-508 32</div>
+						<div>Kontor: 0435-523 80</div>
+						<div>Kontor, fax: 0435-523 80</div>
+					</div>
+					<div>
+						<div><strong>Mats Hugoson</strong></div>
+						<div>Mobil: 070-32 50580</div>
+						<div>mats@haleryd.se</div>
+					</div>
+					<div>
+						<div><strong>Olof Hugoson</strong></div>
+						<div>Mobil: 070-67 50580</div>
+						<div>olof@haleryd.se</div>
+					</div>
+					<div>
+						<div><strong>Erik Hugoson</strong></div>
+						<div>Mobil: 070-26 50581</div>
+						<div>erik@haleryd.se</div>
+					</div>
+					<a href="https://goo.gl/maps/0NAXP" target="_blank">Hitta hit (extern länk)</a>
+				</div>
+				<div class="kontakt" data-bind="if: currentPath() === 'English'">
+					<span style="float: right;">
+						<img style="display: block;" src="http://haleryd.se/onewebstatic/0597a67513-jeth%C3%A5leryd.png" title="Jet Håleryd" alt="Jet Håleryd">
+						<i>Jet Håleryd, V75 Final 1998.</i>
+					</span>
+					<p>
+						<strong>Contact</strong>
+					</p>
+ 
+ 					<div>
+						<div><strong>Postal:</strong></div>
+						<div>Håleryd AB</div>
+						<div>Box 17</div>
+						<div>286 21 Örkelljunga</div>
+					</div>
+					<div>
+						<div><strong>Phone:</strong></div>
+						<div>Horseranch: 0046-(0)435-508 33</div>
+						<div>Horseranch, fax: 0046-(0)435-508 32</div>
+						<div>Kontor: 0046-(0)435-523 80</div>
+						<div>Kontor, fax: 0046-(0)435-523 80</div>
+					</div>
+					<div>
+						<div><strong>Mats Hugoson</strong></div>
+						<div>Phone: 0046-(0)70-32 50580</div>
+						<div>mats@haleryd.se</div>
+					</div>
+					<div>
+						<div><strong>Olof Hugoson</strong></div>
+						<div>Phone: 0046-(0)70-67 50580</div>
+						<div>olof@haleryd.se</div>
+					</div>
+					<div>
+						<div><strong>Erik Hugoson</strong></div>
+						<div>Phone: 0046-(0)70-26 50581</div>
+						<div>erik@haleryd.se</div>
+					</div>
+					<a href="https://goo.gl/maps/0NAXP" target="_blank">Driving directions (extern länk)</a>
+				</div>
 			</span>
 			<span class="news">
 				<strong>Nyheter</strong>
-				<span><a href="#">Norsk vinst för Hades Håleryd</a></span>
-				<span><a href="#">Dacke Håleryd segrade i Frankrike</a></span>
-				<span><a href="#">Spurtseger för Falk Håleryd</a></span>
-				<span><a href="#">Engla Håleryd 4:a på Mantorp</a></span>
-				<span><a href="#">Seger på Vincennes för Falcon</a></span>
-				<span><a href="#">Pris till Google Håleryd på travgala</a></span>
-				<span><a href="#">Ilona fortfarande obesegrad</a></span>
+				<a href="#">Norsk vinst för Hades Håleryd</a>
+				<a href="#">Dacke Håleryd segrade i Frankrike</a>
+				<a href="#">Spurtseger för Falk Håleryd</a>
+				<a href="#">Engla Håleryd 4:a på Mantorp</a>
+				<a href="#">Seger på Vincennes för Falcon</a>
+				<a href="#">Pris till Google Håleryd på travgala</a>
+				<a href="#">Ilona fortfarande obesegrad</a>
 			</span>
 		</div>
-		
 		<div class="footer">Håleryd AB | haleryd@haleryd.se | 0435-52380 | Box 17 | 286 21 Örkelljunga</div>
+		<script type="text/javascript" src="knockout-3.3.0.js"></script>
+		<script>
+			ko.applyBindings(function(){
+				var self = this;
+				self.currentPath = ko.observable("Hem");
+				
+				self.selectedNav = ko.computed(function(){
+					return self.currentPath() === "nuPagadi" 
+						|| self.currentPath() === "Pato" 
+						? "Avelshingstar" 
+						: self.currentPath(); 
+				});
+				
+				self.setCurrentPath = function(a,event,c){
+					var target = event.target.tagName.toLowerCase() !== "a" ? event.target.parentElement : event.target;
+					self.currentPath(target.attributes.href.textContent.replace('#', ''));
+				};
+				
+				self.navElements = [
+					"Hem",
+					"Avelshingstar",
+					"Avelsston",
+					"Unghästar",
+					"Inackordering",
+					"Kontakt",
+					"English"
+				];
+				
+				self.avelsston = [
+					{
+						namn: 'All American Chill',
+						mor: 'Giant Chill',
+						far: 'Classic Almahurst',
+						tid: '1.13,0',
+						prissumma: '1.869.500:-',
+						draktigMed: 'Ready Cash',
+					},
+					{
+						namn: 'Cologne Håleryd',
+						mor: 'Super Arnie',
+						far: 'Dark Jeopardy',
+						tid: '-',
+						prissumma: '-',
+						draktigMed: 'Explosive Matter',
+					},
+					{
+						namn: 'Chanel Håleryd',
+						mor: 'Super Arnie',
+						far: 'Ramona Håleryd',
+						tid: '1.12,0',
+						prissumma: '1.119.200:-',
+						draktigMed: 'Love You',
+					},
+					{
+						namn: 'Laughing Louder',
+						mor: 'Muscles Yankee',
+						far: 'Hoot Bowl',
+						tid: '1.11,7',
+						prissumma: '1.053.587:-',
+						draktigMed: 'Conway Hal',
+					},
+					{
+						namn: 'Looking Flashy',
+						mor: 'Pine Chip',
+						far: 'Pejla Håleryd',
+						tid: '1.15,7',
+						prissumma: '946.525:-',
+						draktigMed: 'Explosive Matter',
+					},
+					{
+						namn: 'Oh Gigi',
+						mor: 'Supergill',
+						far: 'Lousia',
+						tid: '1.13,1',
+						prissumma: '328.943:-',
+						draktigMed: 'Love You',
+					},
+					{
+						namn: 'Ramona Håleryd',
+						mor: 'Defi D Aunou',
+						far: 'Balcony I.T.',
+						tid: '1.15,7',
+						prissumma: '267.400:-',
+						draktigMed: 'Maharajah',
+					},
+					{
+						namn: 'Rebeckas Mystic',
+						mor: 'Coktail Jet',
+						far: 'Coventry Lobell',
+						tid: '1.13,9',
+						prissumma: '887.000:-',
+						draktigMed: 'Scarlet Knight',
+					},
+					{
+						namn: 'Stella Håleryd',
+						mor: 'Alf Palema',
+						far: 'Blitzy Sund',
+						tid: '1.14,9',
+						prissumma: '155.000:-',
+						draktigMed: 'Muscel Massiv',
+					},
+					{
+						namn: 'Velvet Ås',
+						mor: 'Mr Vic',
+						far: 'Mama Lou´s Pearl',
+						tid: '1.13,2',
+						prissumma: '782.700:-',
+						draktigMed: 'Nu Pagadi',
+					},
+					{
+						namn: 'Picture F.H',
+						mor: 'SJ´s Photo',
+						far: 'Princess Tigerlilly',
+						tid: '1.10,8',
+						prissumma: '605 000:-',
+						draktigMed: 'Raja Mirchi',
+					}
+				]
+			});
+		</script>
 	</body>
-
 </html>
